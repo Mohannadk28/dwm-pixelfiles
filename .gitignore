@@ -28,6 +28,11 @@
 *.x86_64
 *.hex
 
+# Backups
+*.orig
+*.rej
+*.diff
+
 # Project-specific
 dwm
 machine.h
