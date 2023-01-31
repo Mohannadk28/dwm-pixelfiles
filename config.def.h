@@ -12,7 +12,7 @@ static const unsigned int maxHTab   			= 200;	/* tab menu height */
 //* appearance ************************************************************************************************************************//
                                                                                                                                        //
 //*********************************************//************************************************************//                        //
-static const unsigned int borderpx       = 4;  // border pixel of windows                                    //                        //
+static const unsigned int borderpx       = 2;  // border pixel of windows                                    //                        //
 static const unsigned int gappx          = 6;  // gaps between windows                                       //                        //
 static const unsigned int snap           = 32; // snap pixel                                                 //                        //
 static const unsigned int systraypinning = 0;  // systray pin                                                //                        //
@@ -37,7 +37,7 @@ static const char col_cyan[]             = "#88c0d0"; //                        
 static const char *colors[][3]           = {                                                                                           //
 /*[Scheme]     = { fg,        bg,        border     }, */                                                                              //
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2  },                                                                                 //
-	[SchemeSel]  = { col_cyan,  col_gray1, col_gray2  },                                                                                 //
+	[SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },                                                                                 //
 };                                                                                                                                     //
 //*************************************************************************************************************************************//
 
@@ -88,20 +88,28 @@ static const Layout layouts[] = {                                               
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 //* COMMANDS **********************************************************************************//**************************************//
-static const char *xkbmap[]    = { "bash", "/home/mohannadk28/.dwm/changelayout.sh", NULL };   // Change Keyboard Layout               //
-static const char *runprompt[] = { "rofi", "-show", "drun", "-show-icons", NULL };             // Run Prompt                           //
-static const char *lockcmd[]   = {"slock", NULL};                                              // Lock Screen                          //
+static const char *xkbmap[]     = { "bash", "/home/mohannadk28/.dwm/changelayout.sh", NULL };  // Change Keyboard Layout               //
+static const char *runprompt[]  = { "rofi", "-show", "drun", "-show-icons", NULL };            // Run Prompt                           //
+static const char *lockcmd[]    = {"slock", NULL};                                             // Lock Screen                          //
 //*********************************************************************************************//**************************************//
-static const char *webcmd[]    = { "librewolf", NULL };                                        // Open | Web Browser                   //
-static const char *emacscmd[]  = { "emacsclient", "-c", NULL };                                // Open | Emacs                         //
+static const char *webcmd[]     = { "librewolf", NULL };                                       // Open | Web Browser                   //
+static const char *emacscmd[]   = { "emacsclient", "-c", NULL };                               // Open | Emacs                         //
 //*********************************************************************************************//**************************************//
-static const char *termcmd[]   = { "st", NULL };                                               // Open | Terminal                      //
-static const char *filecmd[]   = { "st", "ranger", NULL };                                     // Open | File Manager                  //
-static const char *codecmd[]   = { "st", "nvim", NULL };                                       // Open | Code Editor                   //
-//*************************************************************************************************************************************//
+static const char *termcmd[]    = { "st", NULL };                                              // Open | Terminal                      //
+static const char *filecmd[]    = { "st", "ranger", NULL };                                    // Open | File Manager                  //
+static const char *codecmd[]    = { "st", "nvim", NULL };                                      // Open | Code Editor                   //
+//*********************************************************************************************//**************************************//
+static const char *prtselcmd[]  = { "bash", "/home/mohannadk28/.dwm/screenshot-sel.sh", NULL }; // Screenshot | Selection               //
+static const char *prtfscmd[]   = { "bash", "/home/mohannadk28/.dwm/screenshot-fs.sh", NULL }; // Screenshot | Screen                  //
+//*********************************************************************************************//**************************************//
+static const char *volupcmd[]   = { "amixer", "set", "Master", "5%+", NULL };                  // Volume | Up                          //
+static const char *voldowncmd[] = { "amixer", "set", "Master", "5%-", NULL };                  // Volume | Down                        //
+static const char *volmcmd[]    = { "amixer", "set", "Master", "0", NULL };                    // Volume | Mute                        //
+//*********************************************************************************************//**************************************//
 
 //* BINDINGS **************************************************************************************************************************//
 #include "shiftview.c"                                                                                                                 // Shiftview Plugin 
+#include <X11/XF86keysym.h>                                                                                                            // XF86 Key Definitions
                                                                                                                                        //
 static const Key keys[] = {                                                                                                            // Keyborad Bindings
                                                                                                                                        //
@@ -148,6 +156,13 @@ static const Key keys[] = {                                                     
   // Hotkeys                                                                                                                           //
   //********************************************************************************//*************************************************//
 	{ MODKEY,                       XK_space,  spawn,           {.v = xkbmap     } }, // Changes The Keyboard Layout                     //
+  //********************************************************************************//*************************************************//
+  { 0,                            XK_Print,  spawn,           {.v = prtselcmd  } }, // Screenshot | Selection                          //
+  { MODKEY,                       XK_Print,  spawn,           {.v = prtfscmd   } }, // Screenshot | Fullscreen                         //
+  //********************************************************************************//*************************************************//
+  { 0,             XF86XK_AudioRaiseVolume,  spawn,            {.v = volupcmd  } }, // Volume | Up                                     //
+  { 0,             XF86XK_AudioLowerVolume,  spawn,           {.v = voldowncmd } }, // Volume | Down                                   //
+  { 0,                    XF86XK_AudioMute,  spawn,              {.v = volmcmd } }, // Volume | Mute                                   //
   //********************************************************************************//*************************************************//
   // Gaps                                                                                                                              //
   //********************************************************************************//*************************************************//
