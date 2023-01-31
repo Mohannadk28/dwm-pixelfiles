@@ -70,10 +70,15 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *runprompt[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-
 static const char *xkbmap[] = { "bash", "/home/mohannadk28/.pixelfiles/dwm-pixelfiles/scripts/changelayout.sh", NULL };
+static const char *runprompt[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *lockcmd[] = {"slock", NULL};
+
+static const char *webcmd[] = { "librewolf", NULL };
+static const char *termcmd[] = { "st", NULL };
+static const char *filecmd[] = { "st", "ranger", NULL };
+static const char *codecmd[] = { "st", "nvim", NULL };
+static const char *emacscmd[] = { "emacsclient", "-c", NULL };
 
 #include "shiftview.c"
 static const Key keys[] = {
