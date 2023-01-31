@@ -29,6 +29,7 @@
 *.hex
 
 # Backups
+*.bk
 *.orig
 *.rej
 *.diff
