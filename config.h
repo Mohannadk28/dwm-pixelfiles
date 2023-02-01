@@ -2,12 +2,12 @@
 
 
 /* alt-tab configuration */
-static const unsigned int tabModKey 	  	= 0x40;	/* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
-static const unsigned int tabCycleKey 		= 0x17;	/* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
-static const unsigned int tabPosY 		  	= 1;	/* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
-static const unsigned int tabPosX 	  		= 1;	/* tab position on X axis, 0 = left, 1 = center, 2 = right */
-static const unsigned int maxWTab   			= 600;	/* tab menu width */
-static const unsigned int maxHTab   			= 200;	/* tab menu height */
+static const unsigned int tabModKey       = 0x40; /* if this key is hold the alt-tab functionality stays acitve. This key must be the same as key that is used to active functin altTabStart `*/
+static const unsigned int tabCycleKey     = 0x17; /* if this key is hit the alt-tab program moves one position forward in clients stack. This key must be the same as key that is used to active functin altTabStart */
+static const unsigned int tabPosY         = 1;    /* tab position on Y axis, 0 = bottom, 1 = center, 2 = top */
+static const unsigned int tabPosX         = 1;    /* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxWTab         = 600;  /* tab menu width */
+static const unsigned int maxHTab         = 200;  /* tab menu height */
 
 //* APPEARANCE ************************************************************************************************************************//
 
@@ -36,15 +36,15 @@ static const char col_cyan[]             = "#88c0d0"; //
 
 static const char *colors[][3]           = {
 //[Scheme]     = { fg,        bg,        border     },
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
-	[SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
+  [SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
+  [SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
 };
 //*************************************************************************************************************************************//
 
 
 //* TAGS ******************************************************************************************************************************//
 
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "󰖟", "", "", "󰕧", "󰝚", "", "","󰭹", "󰇘" };
 
 //*************************************************************************************************************************************//
 
@@ -52,8 +52,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 //  { class,      instance,    title,       tags mask,     isfloating,   monitor },
-	  { "Gimp",     NULL,        NULL,        0,             0,            -1      },
-	  { "Firefox",  NULL,        NULL,        1 << 8,        0,            -1      },
+    { "Gimp",     NULL,        NULL,        0,             0,            -1      },
+    { "Firefox",  NULL,        NULL,        1 << 8,        0,            -1      },
 };
 
 //*************************************************************************************************************************************//
@@ -69,10 +69,10 @@ static const int lockfullscreen = 1;    // BOOL force focus on the fullscreen wi
 
 static const Layout layouts[] = { // Layout Symbols
   //************************//*******************//
-	{ "[]=",      tile    },  // Tiling   | Layout //
-	{ "><>",      NULL    },  // Floating | Layout //
+  { "[]=",      tile    },  // Tiling   | Layout //
+  { "><>",      NULL    },  // Floating | Layout //
   { "|||",      col     },  // Columns  | Layout //
-	{ "[M]",      monocle },  // Monocle  | Layout //
+  { "[M]",      monocle },  // Monocle  | Layout //
   //************************//*******************//
 };
 
@@ -83,10 +83,10 @@ static const Layout layouts[] = { // Layout Symbols
 #define MODKEY Mod4Mask
 #define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, 
+  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 //*************************************************************************************************************************************//
 
@@ -125,7 +125,7 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY,                       XK_r,      spawn,          {.v = runprompt   } }, // Run Prompt                                      //
   { MODKEY,                       XK_l,      spawn,          {.v = lockcmd     } }, // Lock Screen                                     //
   //********************************************************************************//*************************************************//
-	{ MODKEY,                       XK_x,      spawn,          {.v = termcmd     } }, // Open | ST Terminal                              //
+  { MODKEY,                       XK_x,      spawn,          {.v = termcmd     } }, // Open | ST Terminal                              //
   { MODKEY,                       XK_e,      spawn,          {.v = filecmd     } }, // Open | Ranger File Manager                      //
   { MODKEY,                       XK_b,      spawn,          {.v = webcmd      } }, // Open | Librewolf Web Browser                    //
   { MODKEY,                       XK_z,      spawn,          {.v = codecmd     } }, // Open | Neovim Code Editor                       //
@@ -137,8 +137,8 @@ static const Key keys[] = { // Keyborad Bindings
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_w,      killclient,     {0                } }, // Closes The Foucused Window                      //
   //********************************************************************************//*************************************************//
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1          } }, // Shift Focus to | the Previous Window in the Tag //
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1          } }, // Shift Focus to | the Next Window in the Tag     //
+  { MODKEY,                       XK_j,      focusstack,     {.i = +1          } }, // Shift Focus to | the Previous Window in the Tag //
+  { MODKEY,                       XK_k,      focusstack,     {.i = -1          } }, // Shift Focus to | the Next Window in the Tag     //
   //********************************************************************************//*************************************************//
   { ALTKEY,                       XK_Tab,    altTabStart,    {0                } }, // Cycles Between The Windows in The Tag           //
   //********************************************************************************//*************************************************//
@@ -152,24 +152,24 @@ static const Key keys[] = { // Keyborad Bindings
   //***********************************************************************************************************************************//
   // Layout                                                                                                                            //
   //********************************************************************************//*************************************************//
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1          } }, // Increase | The Windows of The Master Stack      //
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1          } }, // Decrease | The Windows of The Master Stack      //
+  { MODKEY,                       XK_i,      incnmaster,     {.i = +1          } }, // Increase | The Windows of The Master Stack      //
+  { MODKEY,                       XK_d,      incnmaster,     {.i = -1          } }, // Decrease | The Windows of The Master Stack      //
   //********************************************************************************//*************************************************//
   { MODKEY|ShiftMask,             XK_a,      setlayout,      {.v = &layouts[0] } }, // Changes The Layout to | Tiled                   //
-	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[1] } }, // Changes The Layout to | Floating                //
-	{ MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2] } }, // Changes The Layout to | Columns                 //
- 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3] } }, // Changes The Layout to | Monocle (Fullscreen     //
+  { MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[1] } }, // Changes The Layout to | Floating                //
+  { MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2] } }, // Changes The Layout to | Columns                 //
+  { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3] } }, // Changes The Layout to | Monocle (Fullscreen     //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_h,      setmfact,       {.f = +0.05       } }, // Increase | The Size of The Master Stack         //
-	{ MODKEY,                       XK_l,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
+  { MODKEY,                       XK_l,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
   //********************************************************************************//*************************************************//
  
   //***********************************************************************************************************************************//
   // Hotkeys                                                                                                                           //
   //********************************************************************************//*************************************************//
-	{ MODKEY,                       XK_space,  spawn,           {.v = xkbmap     } }, // Changes The Keyboard Layout                     //
+  { MODKEY,                       XK_space,  spawn,           {.v = xkbmap     } }, // Changes The Keyboard Layout                     //
   //********************************************************************************//*************************************************//
-  { 0,                            XK_Print,  spawn,           {.v = prtselcmd  } }, // Screenshot | Selection                          //
+  { ShiftMask,                    XK_Print,  spawn,           {.v = prtselcmd  } }, // Screenshot | Selection                          //
   { MODKEY,                       XK_Print,  spawn,           {.v = prtfscmd   } }, // Screenshot | Fullscreen                         //
   //********************************************************************************//*************************************************//
   { 0,             XF86XK_AudioRaiseVolume,  spawn,            {.v = volupcmd  } }, // Volume | Up                                     //
@@ -181,8 +181,8 @@ static const Key keys[] = { // Keyborad Bindings
   // Gaps                                                                                                                              //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_minus,  setgaps,        {.i = -1          } }, // Decrease | The Gap Size Between Windows         //
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1          } }, // Increase | The Gap Size Between Windows         //
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx       } }, // Reset    | The Gap Size Between Windows         //
+  { MODKEY,                       XK_equal,  setgaps,        {.i = +1          } }, // Increase | The Gap Size Between Windows         //
+  { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx       } }, // Reset    | The Gap Size Between Windows         //
   //********************************************************************************//*************************************************//
   
   //***********************************************************************************************************************************//
@@ -194,15 +194,15 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY,                       XK_q,      view,           {0                } }, // Swap Between The Current and Previous Tags      //
   { MODKEY,                       XK_0,      view,           {.ui = ~0         } }, // Shows All Tags                                  //
   //********************************************************************************//*************************************************//
-	TAGKEYS(                        XK_1,                                          0) // Switch To Tag | 1                               //
-	TAGKEYS(                        XK_2,                                          1) // Switch To Tag | 2                               //
-	TAGKEYS(                        XK_3,                                          2) // Switch To Tag | 3                               //
-	TAGKEYS(                        XK_4,                                          3) // Switch To Tag | 4                               //
-	TAGKEYS(                        XK_5,                                          4) // Switch To Tag | 5                               //
-	TAGKEYS(                        XK_6,                                          5) // Switch To Tag | 6                               //
-	TAGKEYS(                        XK_7,                                          6) // Switch To Tag | 7                               //
-	TAGKEYS(                        XK_8,                                          7) // Switch To Tag | 8                               //
-	TAGKEYS(                        XK_9,                                          8) // Switch To Tag | 9                               //
+  TAGKEYS(                        XK_1,                                          0) // Switch To Tag | 1                               //
+  TAGKEYS(                        XK_2,                                          1) // Switch To Tag | 2                               //
+  TAGKEYS(                        XK_3,                                          2) // Switch To Tag | 3                               //
+  TAGKEYS(                        XK_4,                                          3) // Switch To Tag | 4                               //
+  TAGKEYS(                        XK_5,                                          4) // Switch To Tag | 5                               //
+  TAGKEYS(                        XK_6,                                          5) // Switch To Tag | 6                               //
+  TAGKEYS(                        XK_7,                                          6) // Switch To Tag | 7                               //
+  TAGKEYS(                        XK_8,                                          7) // Switch To Tag | 8                               //
+  TAGKEYS(                        XK_9,                                          8) // Switch To Tag | 9                               //
   //********************************************************************************//*************************************************//
  
   //***********************************************************************************************************************************//
@@ -210,22 +210,22 @@ static const Key keys[] = { // Keyborad Bindings
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
   //********************************************************************************//*************************************************//
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0                } }, // Quit from DWM                                   //
+  { MODKEY|ShiftMask,             XK_q,      quit,           {0                } }, // Quit from DWM                                   //
   //********************************************************************************//*************************************************//
 };
 
 static const Button buttons[] = { // Mouse Bindings
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0            } },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0            } },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0            } },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0            } },
-	{ ClkTagBar,            0,              Button1,        view,           {0            } },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0            } },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
+  { ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
+  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
+  { ClkWinTitle,          0,              Button2,        zoom,           {0            } },
+  { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+  { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0            } },
+  { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0            } },
+  { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0            } },
+  { ClkTagBar,            0,              Button1,        view,           {0            } },
+  { ClkTagBar,            0,              Button3,        toggleview,     {0            } },
+  { ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
+  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
 };
 //*************************************************************************************************************************************//
 
