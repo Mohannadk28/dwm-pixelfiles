@@ -9,79 +9,85 @@ static const unsigned int tabPosX 	  		= 1;	/* tab position on X axis, 0 = left,
 static const unsigned int maxWTab   			= 600;	/* tab menu width */
 static const unsigned int maxHTab   			= 200;	/* tab menu height */
 
-//* appearance ************************************************************************************************************************//
-                                                                                                                                       //
-//*********************************************//************************************************************//                        //
-static const unsigned int borderpx       = 2;  // border pixel of windows                                    //                        //
-static const unsigned int gappx          = 6;  // gaps between windows                                       //                        //
-static const unsigned int snap           = 32; // snap pixel                                                 //                        //
-static const unsigned int systraypinning = 0;  // systray pin                                                //                        //
-static const unsigned int systrayonleft  = 0;  // systray on the left                                        //                        //
-static const unsigned int systrayspacing = 2;  // systray spacing                                            //                        //
-static const int systraypinningfailfirst = 1;  // if pinning failed try display systray on the first monitor //                        //
-static const int showsystray             = 1;  // Enable Systray                                             //                        //
-static const int showbar                 = 1;  // Enable Top Bar                                             //                        //
-static const int topbar                  = 1;  // Enable Bottom Bar ??                                       //                        //
-//*********************************************//************************************************************//                        //
-                                                                                                                                       //
-static const char *fonts[]               = { "UbuntuMono Nerd Font:size=11" };                                                         // Font
-                                                                                                                                       //
-//** Colors ******************************************//                                                                               //
-static const char col_gray1[]            = "#3b4252"; //                                                                               //
-static const char col_gray2[]            = "#434c5e"; //                                                                               //
-static const char col_gray3[]            = "#d8dee9"; //                                                                               //
-static const char col_gray4[]            = "#e5e9f0"; //                                                                               //
-static const char col_cyan[]             = "#88c0d0"; //                                                                               //
-//****************************************************//                                                                               //
-                                                                                                                                       //
-static const char *colors[][3]           = {                                                                                           //
-/*[Scheme]     = { fg,        bg,        border     }, */                                                                              //
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2  },                                                                                 //
-	[SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },                                                                                 //
-};                                                                                                                                     //
+//* APPEARANCE ************************************************************************************************************************//
+
+//*********************************************//************************************************************//
+static const unsigned int borderpx       = 2;  // border pixel of windows                                    //
+static const unsigned int gappx          = 6;  // gaps between windows                                       //
+static const unsigned int snap           = 32; // snap pixel                                                 //
+static const unsigned int systraypinning = 0;  // systray pin                                                //
+static const unsigned int systrayonleft  = 0;  // systray on the left                                        //
+static const unsigned int systrayspacing = 2;  // systray spacing                                            //
+static const int systraypinningfailfirst = 1;  // if pinning failed try display systray on the first monitor //
+static const int showsystray             = 1;  // Enable Systray                                             //
+static const int showbar                 = 1;  // Enable Top Bar                                             //
+static const int topbar                  = 1;  // Enable Bottom Bar ??                                       //
+//*********************************************//************************************************************//
+
+static const char *fonts[]               = { "UbuntuMono Nerd Font:size=11" }; // Fonts
+
+//** Colors ******************************************//
+static const char col_gray1[]            = "#3b4252"; //
+static const char col_gray2[]            = "#434c5e"; //
+static const char col_gray3[]            = "#d8dee9"; //
+static const char col_gray4[]            = "#e5e9f0"; //
+static const char col_cyan[]             = "#88c0d0"; //
+//****************************************************//
+
+static const char *colors[][3]           = {
+//[Scheme]     = { fg,        bg,        border     },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
+	[SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
+};
 //*************************************************************************************************************************************//
 
-//*************************************************************************************************************************************//
 
-//* TAGGING ***************************************************************************************************************************//
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };                                                           //
+//* TAGS ******************************************************************************************************************************//
+
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
 //*************************************************************************************************************************************//
 
 //* RULES *****************************************************************************************************************************//
-static const Rule rules[] = {                                                                                                          //
-	/* class      instance    title       tags mask     isfloating   monitor */                                                          //
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },                                                               //
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },                                                               //
-};                                                                                                                                     //
+
+static const Rule rules[] = {
+//  { class,      instance,    title,       tags mask,     isfloating,   monitor },
+	  { "Gimp",     NULL,        NULL,        0,             0,            -1      },
+	  { "Firefox",  NULL,        NULL,        1 << 8,        0,            -1      },
+};
+
 //*************************************************************************************************************************************//
 
 //* LAYOUT ****************************************************************************************************************************//
-                                                                                                                                       //
-//**************************************//*******************************************//                                                //
-static const float mfact        = 0.55; // Master Stack Default Size [0.5 -> 0.95]   //                                                //
-static const int nmaster        = 1;    // Master Stack Windows                      //                                                //
-static const int resizehints    = 1;    // BOOL respect size hints in tiled resizals //                                                //
-static const int lockfullscreen = 1;    // BOOL force focus on the fullscreen window //                                                //
-//**************************************//*******************************************//                                                //
-                                                                                                                                       //
-static const Layout layouts[] = {                                                                                                      //
-  //************************//*******************//                                                                                    //
-	{ "[]=",      tile    },  // Tiling   | Layout //                                                                                    //
-	{ "><>",      NULL    },  // Floating | Layout //                                                                                    //
-  { "|||",      col     },  // Columns  | Layout //                                                                                    //
-	{ "[M]",      monocle },  // Monocle  | Layout //                                                                                    //
-  //************************//*******************//                                                                                    //
-};                                                                                                                                     //
+
+//**************************************//*******************************************//
+static const float mfact        = 0.55; // Master Stack Default Size [0.5 -> 0.95]   //
+static const int nmaster        = 1;    // Master Stack Windows                      //
+static const int resizehints    = 1;    // BOOL respect size hints in tiled resizals //
+static const int lockfullscreen = 1;    // BOOL force focus on the fullscreen window //
+//**************************************//*******************************************//
+
+static const Layout layouts[] = { // Layout Symbols
+  //************************//*******************//
+	{ "[]=",      tile    },  // Tiling   | Layout //
+	{ "><>",      NULL    },  // Floating | Layout //
+  { "|||",      col     },  // Columns  | Layout //
+	{ "[M]",      monocle },  // Monocle  | Layout //
+  //************************//*******************//
+};
+
 //*************************************************************************************************************************************//
 
 //* KEY DEFINITIONS *******************************************************************************************************************//
-#define MODKEY Mod4Mask                                                                                                                //
-#define ALTKEY Mod1Mask                                                                                                                //
+
+#define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },                                                        //
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, 
+
 //*************************************************************************************************************************************//
 
 // helper for spawning shell commands in the pre dwm-5.0 fashion 
@@ -99,7 +105,7 @@ static const char *termcmd[]    = { "st", NULL };                               
 static const char *filecmd[]    = { "st", "ranger", NULL };                                    // Open | File Manager                  //
 static const char *codecmd[]    = { "st", "nvim", NULL };                                      // Open | Code Editor                   //
 //*********************************************************************************************//**************************************//
-static const char *prtselcmd[]  = { "bash", "/home/mohannadk28/.dwm/screenshot-sel.sh", NULL }; // Screenshot | Selection               //
+static const char *prtselcmd[]  = { "bash", "/home/mohannadk28/.dwm/screenshot-sl.sh", NULL }; // Screenshot | Selection               //
 static const char *prtfscmd[]   = { "bash", "/home/mohannadk28/.dwm/screenshot-fs.sh", NULL }; // Screenshot | Screen                  //
 //*********************************************************************************************//**************************************//
 static const char *volupcmd[]   = { "amixer", "set", "Master", "5%+", NULL };                  // Volume | Up                          //
@@ -108,11 +114,11 @@ static const char *volmcmd[]    = { "amixer", "set", "Master", "0", NULL };     
 //*********************************************************************************************//**************************************//
 
 //* BINDINGS **************************************************************************************************************************//
-#include "shiftview.c"                                                                                                                 // Shiftview Plugin 
-#include <X11/XF86keysym.h>                                                                                                            // XF86 Key Definitions
-                                                                                                                                       //
-static const Key keys[] = {                                                                                                            // Keyborad Bindings
-                                                                                                                                       //
+#include "shiftview.c" // Shiftview Plugin 
+#include <X11/XF86keysym.h> // XF86 Key Definitions
+
+static const Key keys[] = { // Keyborad Bindings
+
   //***********************************************************************************************************************************//
   // Applications                                                                                                                      //
   //********************************************************************************//*************************************************//
@@ -125,6 +131,8 @@ static const Key keys[] = {                                                     
   { MODKEY,                       XK_z,      spawn,          {.v = codecmd     } }, // Open | Neovim Code Editor                       //
   { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = emacscmd    } }, // Open | Emacs                                    //
   //********************************************************************************//*************************************************//
+  
+  //***********************************************************************************************************************************//
   // Window                                                                                                                            //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_w,      killclient,     {0                } }, // Closes The Foucused Window                      //
@@ -140,6 +148,8 @@ static const Key keys[] = {                                                     
   //********************************************************************************//*************************************************//
   { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0         } }, // Makes The Window Appers in all Tags             //
   //********************************************************************************//*************************************************//
+
+  //***********************************************************************************************************************************//
   // Layout                                                                                                                            //
   //********************************************************************************//*************************************************//
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1          } }, // Increase | The Windows of The Master Stack      //
@@ -153,6 +163,8 @@ static const Key keys[] = {                                                     
   { MODKEY,                       XK_h,      setmfact,       {.f = +0.05       } }, // Increase | The Size of The Master Stack         //
 	{ MODKEY,                       XK_l,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
   //********************************************************************************//*************************************************//
+ 
+  //***********************************************************************************************************************************//
   // Hotkeys                                                                                                                           //
   //********************************************************************************//*************************************************//
 	{ MODKEY,                       XK_space,  spawn,           {.v = xkbmap     } }, // Changes The Keyboard Layout                     //
@@ -164,12 +176,16 @@ static const Key keys[] = {                                                     
   { 0,             XF86XK_AudioLowerVolume,  spawn,           {.v = voldowncmd } }, // Volume | Down                                   //
   { 0,                    XF86XK_AudioMute,  spawn,              {.v = volmcmd } }, // Volume | Mute                                   //
   //********************************************************************************//*************************************************//
+
+  //***********************************************************************************************************************************//
   // Gaps                                                                                                                              //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_minus,  setgaps,        {.i = -1          } }, // Decrease | The Gap Size Between Windows         //
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1          } }, // Increase | The Gap Size Between Windows         //
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx       } }, // Reset    | The Gap Size Between Windows         //
   //********************************************************************************//*************************************************//
+  
+  //***********************************************************************************************************************************//
   // Tags                                                                                                                              //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_a,      shiftview,      {.i = -1          } }, // Shift the View to the | Previous Tag            //
@@ -188,26 +204,28 @@ static const Key keys[] = {                                                     
 	TAGKEYS(                        XK_8,                                          7) // Switch To Tag | 8                               //
 	TAGKEYS(                        XK_9,                                          8) // Switch To Tag | 9                               //
   //********************************************************************************//*************************************************//
+ 
+  //***********************************************************************************************************************************//
   // DWM                                                                                                                               //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
   //********************************************************************************//*************************************************//
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0                } }, // Quit from DWM                                   //
   //********************************************************************************//*************************************************//
-};                                                                                                                                     //
-                                                                                                                                       //
-static const Button buttons[] = {                                                                                                      // Mouse Bindings
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },                                           //
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },                                           //
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0            } },                                           //
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },                                           //
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0            } },                                           //
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0            } },                                           //
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0            } },                                           //
-	{ ClkTagBar,            0,              Button1,        view,           {0            } },                                           //
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0            } },                                           //
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },                                           //
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },                                           //
-};                                                                                                                                     //
+};
+
+static const Button buttons[] = { // Mouse Bindings
+	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
+	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
+	{ ClkWinTitle,          0,              Button2,        zoom,           {0            } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0            } },
+	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0            } },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0            } },
+	{ ClkTagBar,            0,              Button1,        view,           {0            } },
+	{ ClkTagBar,            0,              Button3,        toggleview,     {0            } },
+	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
+	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
+};
 //*************************************************************************************************************************************//
 
