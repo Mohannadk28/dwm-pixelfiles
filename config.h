@@ -9,16 +9,18 @@ static const unsigned int tabPosX         = 1;    /* tab position on X axis, 0 =
 static const unsigned int maxWTab         = 600;  /* tab menu width */
 static const unsigned int maxHTab         = 200;  /* tab menu height */
 
-//* APPEARANCE ************************************************************************************************************************//
+// APPEARANCE _________________________________________________________________________________________________________________________//
 
 //*********************************************//************************************************************//
 static const unsigned int borderpx       = 2;  // border pixel of windows                                    //
 static const unsigned int gappx          = 6;  // gaps between windows                                       //
 static const unsigned int snap           = 32; // snap pixel                                                 //
+//*********************************************//************************************************************//
 static const unsigned int systraypinning = 0;  // systray pin                                                //
 static const unsigned int systrayonleft  = 0;  // systray on the left                                        //
-static const unsigned int systrayspacing = 2;  // systray spacing                                            //
+static const unsigned int systrayspacing = 3;  // systray spacing                                            //
 static const int systraypinningfailfirst = 1;  // if pinning failed try display systray on the first monitor //
+//*********************************************//************************************************************//
 static const int showsystray             = 1;  // Enable Systray                                             //
 static const int showbar                 = 1;  // Enable Top Bar                                             //
 static const int topbar                  = 1;  // Enable Bottom Bar ??                                       //
@@ -39,26 +41,19 @@ static const char *colors[][3]           = {
   [SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
   [SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
 };
-//*************************************************************************************************************************************//
 
-
-//* TAGS ******************************************************************************************************************************//
-
+// TAGS _______________________________________________________________________________________________________________________________//
 static const char *tags[] = { "󰖟", "", "", "󰕧", "󰝚", "", "","󰭹", "󰇘" };
 
-//*************************************************************************************************************************************//
-
-//* RULES *****************************************************************************************************************************//
-
+// RULES ______________________________________________________________________________________________________________________________//
 static const Rule rules[] = {
 //  { class,      instance,    title,       tags mask,     isfloating,   monitor },
     { "Gimp",     NULL,        NULL,        0,             0,            -1      },
     { "Firefox",  NULL,        NULL,        1 << 8,        0,            -1      },
 };
 
-//*************************************************************************************************************************************//
 
-//* LAYOUT ****************************************************************************************************************************//
+// LAYOUT _____________________________________________________________________________________________________________________________//
 
 //**************************************//*******************************************//
 static const float mfact        = 0.55; // Master Stack Default Size [0.5 -> 0.95]   //
@@ -76,9 +71,7 @@ static const Layout layouts[] = { // Layout Symbols
   //************************//*******************//
 };
 
-//*************************************************************************************************************************************//
-
-//* KEY DEFINITIONS *******************************************************************************************************************//
+// KEY DEFINITIONS ____________________________________________________________________________________________________________________//
 
 #define MODKEY Mod4Mask
 #define ALTKEY Mod1Mask
@@ -88,32 +81,33 @@ static const Layout layouts[] = { // Layout Symbols
   { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
   { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-//*************************************************************************************************************************************//
-
 // helper for spawning shell commands in the pre dwm-5.0 fashion 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-//* COMMANDS **********************************************************************************//**************************************//
-static const char *xkbmap[]     = { "bash", "/home/mohannadk28/.dwm/changelayout.sh", NULL };  // Change Keyboard Layout               //
-static const char *runprompt[]  = { "rofi", "-show", "drun", "-show-icons", NULL };            // Run Prompt                           //
-static const char *lockcmd[]    = {"slock", NULL};                                             // Lock Screen                          //
-//*********************************************************************************************//**************************************//
-static const char *webcmd[]     = { "librewolf", NULL };                                       // Open | Web Browser                   //
-static const char *emacscmd[]   = { "emacsclient", "-c", NULL };                               // Open | Emacs                         //
-//*********************************************************************************************//**************************************//
-static const char *termcmd[]    = { "st", NULL };                                              // Open | Terminal                      //
-static const char *filecmd[]    = { "st", "ranger", NULL };                                    // Open | File Manager                  //
-static const char *codecmd[]    = { "st", "nvim", NULL };                                      // Open | Code Editor                   //
-//*********************************************************************************************//**************************************//
-static const char *prtselcmd[]  = { "bash", "/home/mohannadk28/.dwm/screenshot-sl.sh", NULL }; // Screenshot | Selection               //
-static const char *prtfscmd[]   = { "bash", "/home/mohannadk28/.dwm/screenshot-fs.sh", NULL }; // Screenshot | Screen                  //
-//*********************************************************************************************//**************************************//
-static const char *volupcmd[]   = { "amixer", "set", "Master", "5%+", NULL };                  // Volume | Up                          //
-static const char *voldowncmd[] = { "amixer", "set", "Master", "5%-", NULL };                  // Volume | Down                        //
-static const char *volmcmd[]    = { "amixer", "set", "Master", "0", NULL };                    // Volume | Mute                        //
-//*********************************************************************************************//**************************************//
+//* COMMANDS *************************************************************************************//************************//
+static const char *xkbmap[]        = { "bash", "/home/mohannadk28/.dwm/changelayout.sh", NULL };  // Change Keyboard Layout //
+static const char *runprompt[]     = { "dmenu_run", "-l", "12", NULL };                            // Run Prompt             //
+static const char *lockcmd[]       = {"slock", NULL};                                             // Lock Screen            //
+//************************************************************************************************//************************//
+static const char *webcmd[]        = { "librewolf", NULL };                                       // Open | Web Browser     //
+static const char *emacscmd[]      = { "emacsclient", "-c", NULL };                               // Open | Emacs           //
+//************************************************************************************************//************************//
+static const char *termcmd[]       = { "st", NULL };                                              // Open | Terminal        //
+static const char *filecmd[]       = { "st", "ranger", NULL };                                    // Open | File Manager    //
+static const char *codecmd[]       = { "st", "nvim", NULL };                                      // Open | Code Editor     //
+//************************************************************************************************//************************//
+static const char *prtselcmd[]     = { "bash", "/home/mohannadk28/.dwm/screenshot-sl.sh", NULL }; // Screenshot | Selection //
+static const char *prtfscmd[]      = { "bash", "/home/mohannadk28/.dwm/screenshot-fs.sh", NULL }; // Screenshot | Screen    //
+//************************************************************************************************//************************//
+static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                  // Volume | Up            //
+static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                  // Volume | Down          //
+static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                    // Volume | Mute          //
+//************************************************************************************************//************************//
+static const char *brightupcmd[]   = { "brightnessctl", "set", "+10%", NULL };                    // Brightness | Up        //
+static const char *brightdowncmd[] = { "brightnessctl", "set", "-10&", NULL };                    // Brightness | Down      //
+//************************************************************************************************//************************//
 
-//* BINDINGS **************************************************************************************************************************//
+// BINDINGS ___________________________________________________________________________________________________________________________//
 #include "shiftview.c" // Shiftview Plugin 
 #include <X11/XF86keysym.h> // XF86 Key Definitions
 
@@ -123,7 +117,7 @@ static const Key keys[] = { // Keyborad Bindings
   // Applications                                                                                                                      //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_r,      spawn,          {.v = runprompt   } }, // Run Prompt                                      //
-  { MODKEY,                       XK_l,      spawn,          {.v = lockcmd     } }, // Lock Screen                                     //
+  { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd     } }, // Lock Screen                                     //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_x,      spawn,          {.v = termcmd     } }, // Open | ST Terminal                              //
   { MODKEY,                       XK_e,      spawn,          {.v = filecmd     } }, // Open | Ranger File Manager                      //
@@ -154,7 +148,7 @@ static const Key keys[] = { // Keyborad Bindings
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_i,      incnmaster,     {.i = +1          } }, // Increase | The Windows of The Master Stack      //
   { MODKEY,                       XK_d,      incnmaster,     {.i = -1          } }, // Decrease | The Windows of The Master Stack      //
-  //********************************************************************************//*************************************************//
+                                                                                    //********************************************************************************//*************************************************//
   { MODKEY|ShiftMask,             XK_a,      setlayout,      {.v = &layouts[0] } }, // Changes The Layout to | Tiled                   //
   { MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[1] } }, // Changes The Layout to | Floating                //
   { MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2] } }, // Changes The Layout to | Columns                 //
@@ -176,13 +170,16 @@ static const Key keys[] = { // Keyborad Bindings
   { 0,             XF86XK_AudioLowerVolume,  spawn,           {.v = voldowncmd } }, // Volume | Down                                   //
   { 0,                    XF86XK_AudioMute,  spawn,              {.v = volmcmd } }, // Volume | Mute                                   //
   //********************************************************************************//*************************************************//
+  { 0,             XF86XK_MonBrightnessUp,   spawn,          {.v = brightupcmd } }, // Brightness | Up                                 //
+  { 0,           XF86XK_MonBrightnessDown,   spawn,        {.v = brightdowncmd } }, // Brightness | Down                               //
+  //********************************************************************************//*************************************************//
 
   //***********************************************************************************************************************************//
   // Gaps                                                                                                                              //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_minus,  setgaps,        {.i = -1          } }, // Decrease | The Gap Size Between Windows         //
   { MODKEY,                       XK_equal,  setgaps,        {.i = +1          } }, // Increase | The Gap Size Between Windows         //
-  { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = gappx       } }, // Reset    | The Gap Size Between Windows         //
+  { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.v = gappx       } }, // Reset    | The Gap Size Between Windows         //
   //********************************************************************************//*************************************************//
   
   //***********************************************************************************************************************************//
@@ -209,7 +206,6 @@ static const Key keys[] = { // Keyborad Bindings
   // DWM                                                                                                                               //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
-  //********************************************************************************//*************************************************//
   { MODKEY|ShiftMask,             XK_q,      quit,           {0                } }, // Quit from DWM                                   //
   //********************************************************************************//*************************************************//
 };
@@ -227,5 +223,4 @@ static const Button buttons[] = { // Mouse Bindings
   { ClkTagBar,            MODKEY,         Button1,        tag,            {0            } },
   { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0            } },
 };
-//*************************************************************************************************************************************//
 
