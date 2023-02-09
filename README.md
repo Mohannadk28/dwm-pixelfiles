@@ -4,6 +4,8 @@ My DWM Build for pixelfiles :D
 
 ![alt a Preview of the dwm-pixelfiles build](./prev.png "a Preview of the dwm-pixelfiles build")
 
+---
+
 ## Patches
 1. [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/)
 2. [Alt-tab](https://dwm.suckless.org/patches/alt-tab/)
