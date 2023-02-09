@@ -84,28 +84,32 @@ static const Layout layouts[] = { // Layout Symbols
 // helper for spawning shell commands in the pre dwm-5.0 fashion 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-//* COMMANDS *************************************************************************************//************************//
-static const char *xkbmap[]        = { "bash", "/home/mohannadk28/.dwm/changelayout.sh", NULL };  // Change Keyboard Layout //
-static const char *runprompt[]     = { "dmenu_run", "-l", "12", NULL };                            // Run Prompt             //
-static const char *lockcmd[]       = {"slock", NULL};                                             // Lock Screen            //
-//************************************************************************************************//************************//
-static const char *webcmd[]        = { "librewolf", NULL };                                       // Open | Web Browser     //
-static const char *emacscmd[]      = { "emacsclient", "-c", NULL };                               // Open | Emacs           //
-//************************************************************************************************//************************//
-static const char *termcmd[]       = { "st", NULL };                                              // Open | Terminal        //
-static const char *filecmd[]       = { "st", "ranger", NULL };                                    // Open | File Manager    //
-static const char *codecmd[]       = { "st", "nvim", NULL };                                      // Open | Code Editor     //
-//************************************************************************************************//************************//
-static const char *prtselcmd[]     = { "bash", "/home/mohannadk28/.dwm/screenshot-sl.sh", NULL }; // Screenshot | Selection //
-static const char *prtfscmd[]      = { "bash", "/home/mohannadk28/.dwm/screenshot-fs.sh", NULL }; // Screenshot | Screen    //
-//************************************************************************************************//************************//
-static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                  // Volume | Up            //
-static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                  // Volume | Down          //
-static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                    // Volume | Mute          //
-//************************************************************************************************//************************//
-static const char *brightupcmd[]   = { "brightnessctl", "set", "+10%", NULL };                    // Brightness | Up        //
-static const char *brightdowncmd[] = { "brightnessctl", "set", "-10&", NULL };                    // Brightness | Down      //
-//************************************************************************************************//************************//
+//* COMMANDS *********************************************************************************************//************************//
+static const char *xkbmap[]        = { "/home/mohannadk28/.scripts/xkbswitch", NULL };                    // Change Keyboard Layout //
+static const char *runprompt[]     = { "dmenu_run", "-l", "12", "-p", "Run:", NULL };                     // Run Prompt             //
+static const char *lockcmd[]       = { "slock", NULL};                                                    // Lock Screen            //
+//********************************************************************************************************//************************//
+static const char *webcmd[]        = { "qutebrowser", NULL };                                             // Open | Web Browser     //
+static const char *emacscmd[]      = { "emacsclient", "-c", NULL             };                           // Open | Emacs           //
+//********************************************************************************************************//************************//
+static const char *termcmd[]       = { "st", NULL };                                                      // Open | Terminal        //
+static const char *filecmd[]       = { "st", "ranger", NULL };                                            // Open | File Manager    //
+static const char *codecmd[]       = { "st", "nvim", NULL };                                              // Open | Code Editor     //
+//********************************************************************************************************//************************//
+static const char *prtselcmd[]     = { "/home/mohannadk28/.scripts/screenshot", "select", NULL };         // Screenshot | Selection //
+static const char *prtfscmd[]      = { "/home/mohannadk28/.scripts/screenshot", NULL };                   // Screenshot | Screen    //
+//********************************************************************************************************//************************//
+static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                          // Volume | Up            //
+static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                          // Volume | Down          //
+static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                            // Volume | Mute          //
+//********************************************************************************************************//************************//
+static const char *brightupcmd[]   = { "brightnessctl", "s", "10%+", NULL };                              // Brightness | Up        //
+static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };                              // Brightness | Down      //
+//********************************************************************************************************//************************//
+static const char *byecmd[]        = { "/home/mohannadk28/.scripts/dmenu/bye", NULL };                    // Exit Menu              //
+static const char *webmarkcmd[]    = { "/home/mohannadk28/.scripts/dmenu/webmark", NULL };                // Bookmarks Menu         //
+static const char *wallchangecmd[] = { "/home/mohannadk28/.scripts/dmenu/wallchange", NULL };             // Wallpaper Changer      //
+//********************************************************************************************************//************************//
 
 // BINDINGS ___________________________________________________________________________________________________________________________//
 #include "shiftview.c" // Shiftview Plugin 
@@ -148,14 +152,16 @@ static const Key keys[] = { // Keyborad Bindings
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_i,      incnmaster,     {.i = +1          } }, // Increase | The Windows of The Master Stack      //
   { MODKEY,                       XK_d,      incnmaster,     {.i = -1          } }, // Decrease | The Windows of The Master Stack      //
-                                                                                    //********************************************************************************//*************************************************//
+  //********************************************************************************//*************************************************//
   { MODKEY|ShiftMask,             XK_a,      setlayout,      {.v = &layouts[0] } }, // Changes The Layout to | Tiled                   //
   { MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[1] } }, // Changes The Layout to | Floating                //
   { MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2] } }, // Changes The Layout to | Columns                 //
-  { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3] } }, // Changes The Layout to | Monocle (Fullscreen     //
+  { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3] } }, // Changes The Layout to | Monocle (Fullscreen)    //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_h,      setmfact,       {.f = +0.05       } }, // Increase | The Size of The Master Stack         //
   { MODKEY,                       XK_l,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
+  //********************************************************************************//*************************************************//
+  { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
   //********************************************************************************//*************************************************//
  
   //***********************************************************************************************************************************//
@@ -203,10 +209,11 @@ static const Key keys[] = { // Keyborad Bindings
   //********************************************************************************//*************************************************//
  
   //***********************************************************************************************************************************//
-  // DWM                                                                                                                               //
+  // Scripts                                                                                                                           //
   //********************************************************************************//*************************************************//
-  { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
-  { MODKEY|ShiftMask,             XK_q,      quit,           {0                } }, // Quit from DWM                                   //
+  { MODKEY|ShiftMask,             XK_q,      spawn,        {.v = byecmd        } }, // Bye :D                                          //
+  { MODKEY|ShiftMask,             XK_b,      spawn,        {.v = webmarkcmd    } }, // Webmark                                         //
+  { MODKEY|ALTKEY,                XK_w,      spawn,        {.v = wallchangecmd } }, // WallChange                                      //
   //********************************************************************************//*************************************************//
 };
 
