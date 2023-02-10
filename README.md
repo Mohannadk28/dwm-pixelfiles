@@ -1,6 +1,6 @@
 # dwm-pixelfiles
 
-My DWM Build for pixelfiles :D
+My [DWM](https://dwm.suckless.org/) Build for [pixelfiles](https://github.com/mohannadk28/dwm-pixelfiles) :D
 
 ![alt a Preview of the dwm-pixelfiles build](./prev.png "a Preview of the dwm-pixelfiles build")
 

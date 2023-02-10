@@ -86,7 +86,7 @@ static const Layout layouts[] = { // Layout Symbols
 
 //* COMMANDS *********************************************************************************************//************************//
 static const char *xkbmap[]        = { "/home/mohannadk28/.scripts/xkbswitch", NULL };                    // Change Keyboard Layout //
-static const char *runprompt[]     = { "dmenu_run", "-l", "12", "-p", "Run:", NULL };                     // Run Prompt             //
+static const char *runprompt[]     = { "/home/mohannadk28/.dwm/launch", NULL };                           // Run Prompt             //
 static const char *lockcmd[]       = { "slock", NULL};                                                    // Lock Screen            //
 //********************************************************************************************************//************************//
 static const char *webcmd[]        = { "qutebrowser", NULL };                                             // Open | Web Browser     //
