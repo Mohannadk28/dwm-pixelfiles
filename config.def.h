@@ -13,7 +13,7 @@ static const unsigned int maxHTab         = 200;  /* tab menu height */
 
 //*********************************************//************************************************************//
 static const unsigned int borderpx       = 2;  // border pixel of windows                                    //
-static const unsigned int gappx          = 12; // gaps between windows                                       //
+static const unsigned int gappx          = 10; // gaps between windows                                       //
 static const unsigned int snap           = 32; // snap pixel                                                 //
 //*********************************************//************************************************************//
 static const unsigned int systraypinning = 0;  // systray pin                                                //
@@ -86,7 +86,7 @@ static const Layout layouts[] = { // Layout Symbols
 
 //* COMMANDS *********************************************************************************************//************************//
 static const char *xkbmap[]        = { "/home/mohannadk28/.scripts/xkbswitch", NULL };                    // Change Keyboard Layout //
-static const char *runprompt[]     = { "dmenu_run", "-l", "12", "-p", "Run:", NULL };                     // Run Prompt             //
+static const char *runprompt[]     = { "/home/mohannadk28/.dwm/launch", NULL };                           // Run Prompt             //
 static const char *lockcmd[]       = { "slock", NULL};                                                    // Lock Screen            //
 //********************************************************************************************************//************************//
 static const char *webcmd[]        = { "qutebrowser", NULL };                                             // Open | Web Browser     //
