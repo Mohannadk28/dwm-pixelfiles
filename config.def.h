@@ -85,16 +85,16 @@ static const Layout layouts[] = { // Layout Symbols
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 //* COMMANDS *********************************************************************************************//************************//
-static const char *xkbmap[]        = { "/home/mohannadk28/.scripts/xkbswitch", NULL };                    // Change Keyboard Layout //
+static const char *xkbmap[]        = { "/home/mohannadk28/.dwm/langswitch", NULL };                       // Change Keyboard Layout //
 static const char *runprompt[]     = { "/home/mohannadk28/.dwm/launch", NULL };                           // Run Prompt             //
 static const char *lockcmd[]       = { "slock", NULL};                                                    // Lock Screen            //
 //********************************************************************************************************//************************//
-static const char *webcmd[]        = { "qutebrowser", NULL };                                             // Open | Web Browser     //
+static const char *webcmd[]        = { "/home/mohannadk28/.dwm/defapps/web", NULL };                      // Open | Web Browser     //
 static const char *emacscmd[]      = { "emacsclient", "-c", NULL             };                           // Open | Emacs           //
 //********************************************************************************************************//************************//
-static const char *termcmd[]       = { "st", NULL };                                                      // Open | Terminal        //
-static const char *filecmd[]       = { "st", "ranger", NULL };                                            // Open | File Manager    //
-static const char *codecmd[]       = { "st", "nvim", NULL };                                              // Open | Code Editor     //
+static const char *termcmd[]       = { "/home/mohannadk28/.dwm/defapps/term", NULL };                     // Open | Terminal        //
+static const char *filecmd[]       = { "/home/mohannadk28/.dwm/defapps/file", NULL };                     // Open | File Manager    //
+static const char *codecmd[]       = { "/home/mohannadk28/.dwm/defapps/code", NULL };                     // Open | Code Editor     //
 //********************************************************************************************************//************************//
 static const char *prtselcmd[]     = { "/home/mohannadk28/.scripts/screenshot", "select", NULL };         // Screenshot | Selection //
 static const char *prtfscmd[]      = { "/home/mohannadk28/.scripts/screenshot", NULL };                   // Screenshot | Screen    //
@@ -109,6 +109,7 @@ static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };    
 static const char *byecmd[]        = { "/home/mohannadk28/.scripts/dmenu/bye", NULL };                    // Exit Menu              //
 static const char *webmarkcmd[]    = { "/home/mohannadk28/.scripts/dmenu/webmark", NULL };                // Bookmarks Menu         //
 static const char *wallchangecmd[] = { "/home/mohannadk28/.scripts/dmenu/wallchange", NULL };             // Wallpaper Changer      //
+static const char *kpmenu[]        = { "/home/mohannadk28/.dwm/defapps/keepass", NULL }                   // Kpmenu                 //
 //********************************************************************************************************//************************//
 
 // BINDINGS ___________________________________________________________________________________________________________________________//
@@ -214,6 +215,7 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY|ShiftMask,             XK_q,      spawn,        {.v = byecmd        } }, // Bye :D                                          //
   { MODKEY|ShiftMask,             XK_b,      spawn,        {.v = webmarkcmd    } }, // Webmark                                         //
   { MODKEY|ALTKEY,                XK_w,      spawn,        {.v = wallchangecmd } }, // WallChange                                      //
+  { MODKEY|ALTKEY,                XK_o,      spawn,        {.v = kpmenucmd     } }, // Kpmenu                                          //
   //********************************************************************************//*************************************************//
 };
 
