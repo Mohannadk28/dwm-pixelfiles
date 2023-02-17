@@ -1,0 +1,5 @@
+#/bin/bash
+
+setxkbmap -query | grep -q 'us' && setxkbmap ar || setxkbmap us
+notify-send "Changed Language" "The Language is now "$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}')" "
+
