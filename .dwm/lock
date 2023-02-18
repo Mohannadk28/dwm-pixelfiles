@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mpv --no-video ~/.pixelfiles/sounds-pixelfiles/menu1.mp3 &
+slock
+mpv --no-video ~/.pixelfiles/sounds-pixelfiles/menu2.mp3
+
