@@ -84,34 +84,34 @@ static const Layout layouts[] = { // Layout Symbols
 // helper for spawning shell commands in the pre dwm-5.0 fashion 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-//* COMMANDS *****************************************************************************************************//************************//
-static const char *xkbmap[]        = { "/home/mohannadk28/.local/share/dwm/scripts/langswitch", NULL };           // Change Keyboard Layout //
-static const char *runprompt[]     = { "/home/mohannadk28/.local/share/dwm/scripts/launch", NULL };               // Run Prompt             //
-static const char *lockcmd[]       = { "/home/mohannadk28/.local/share/dwm/scripts/lock", NULL};                  // Lock Screen            //
-//****************************************************************************************************************//************************//
-static const char *webcmd[]        = { "/home/mohannadk28/.local/share/dwm/defapps/web", NULL };                  // Open | Web Browser     //
-static const char *emacscmd[]      = { "/home/mohannadk28/.local/share/dwm/defapps/emacs", NULL };                // Open | Emacs           //
-//****************************************************************************************************************//************************//
-static const char *termcmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/term", NULL };                 // Open | Terminal        //
-static const char *filecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/file", NULL };                 // Open | File Manager    //
-static const char *codecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/code", NULL };                 // Open | Code Editor     //
-//****************************************************************************************************************//************************//
-static const char *prtselcmd[]     = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", "select", NULL }; // Screenshot | Selection //
-static const char *prtfscmd[]      = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", NULL };           // Screenshot | Screen    //
-//****************************************************************************************************************//************************//
-static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                                  // Volume | Up            //
-static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                                  // Volume | Down          //
-static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                                    // Volume | Mute          //
-//****************************************************************************************************************//************************//
-static const char *brightupcmd[]   = { "brightnessctl", "s", "10%+", NULL };                                      // Brightness | Up        //
-static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };                                      // Brightness | Down      //
-//****************************************************************************************************************//************************//
-static const char *byecmd[]        = { "/home/mohannadk28/.local/share/dwm/scripts/bye", NULL };            // Exit Menu              //
-static const char *kpmenucmd[]     = { "/home/mohannadk28/.local/share/dwm/defapps/keepass", NULL };              // Kpmenu                 //
-//****************************************************************************************************************//************************//
-static const char *webmarkcmd[]    = { "/home/mohannadk28/.scripts/dmenu/webmark", NULL };                        // Bookmarks Menu         //
-static const char *wallchangecmd[] = { "/home/mohannadk28/.scripts/dmenu/wallchange", NULL };                     // Wallpaper Changer      //
-//****************************************************************************************************************//************************//
+//* COMMANDS *******************************************************************************************************//************************//
+static const char *xkbmap[]        = { "/home/mohannadk28/.local/share/dwm/scripts/langswitch", NULL };             // Change Keyboard Layout //
+static const char *runprompt[]     = { "/home/mohannadk28/.local/share/dwm/scripts/launch", NULL };                 // Run Prompt             //
+static const char *lockcmd[]       = { "/home/mohannadk28/.local/share/dwm/scripts/lock", NULL};                    // Lock Screen            //
+//******************************************************************************************************************//************************//
+static const char *webcmd[]        = { "/home/mohannadk28/.local/share/dwm/defapps/web", NULL };                    // Open | Web Browser     //
+static const char *emacscmd[]      = { "/home/mohannadk28/.local/share/dwm/defapps/emacs", NULL };                  // Open | Emacs           //
+//******************************************************************************************************************//************************//
+static const char *termcmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/term", NULL };                   // Open | Terminal        //
+static const char *filecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/file", NULL };                   // Open | File Manager    //
+static const char *codecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/code", NULL };                   // Open | Code Editor     //
+//******************************************************************************************************************//************************//
+static const char *prtselcmd[]     = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", "select", NULL };   // Screenshot | Selection //
+static const char *prtfscmd[]      = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", NULL };             // Screenshot | Screen    //
+//******************************************************************************************************************//************************//
+static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                                    // Volume | Up            //
+static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                                    // Volume | Down          //
+static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                                      // Volume | Mute          //
+//******************************************************************************************************************//************************//
+static const char *brightupcmd[]   = { "brightnessctl", "s", "10%+", NULL };                                        // Brightness | Up        //
+static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };                                        // Brightness | Down      //
+//******************************************************************************************************************//************************//
+static const char *byecmd[]        = { "/home/mohannadk28/.local/share/dwm/scripts/bye", NULL };                    // Exit Menu              //
+static const char *kpmenucmd[]     = { "/home/mohannadk28/.local/share/dwm/defapps/keepass", NULL };                // Kpmenu                 //
+//******************************************************************************************************************//************************//
+static const char *webmarkcmd[]    = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/webmark", NULL };    // Bookmarks Menu         //
+static const char *wallchangecmd[] = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/wallchange", NULL }; // Wallpaper Changer      //
+//******************************************************************************************************************//************************//
 
 // BINDINGS ___________________________________________________________________________________________________________________________//
 #include "shiftview.c" // Shiftview Plugin 
