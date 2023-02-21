@@ -13,7 +13,7 @@ static const unsigned int maxHTab         = 200;  /* tab menu height */
 
 //*********************************************//************************************************************//
 static const unsigned int borderpx       = 2;  // border pixel of windows                                    //
-static const unsigned int gappx          = 10; // gaps between windows                                       //
+static const unsigned int gappx          = 14; // gaps between windows                                       //
 static const unsigned int snap           = 32; // snap pixel                                                 //
 //*********************************************//************************************************************//
 static const unsigned int systraypinning = 0;  // systray pin                                                //
