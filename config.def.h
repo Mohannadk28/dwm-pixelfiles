@@ -26,7 +26,7 @@ static const int showbar                 = 1;  // Enable Top Bar                
 static const int topbar                  = 1;  // Enable Bottom Bar ??                                       //
 //*********************************************//************************************************************//
 
-static const char *fonts[]               = { "UbuntuMono Nerd Font:size=11" }; // Fonts
+static const char *fonts[]               = { "FiraCode Nerd Font:size=10" }; // Fonts
 
 //** Colors ******************************************//
 static const char col_gray1[]            = "#3b4252"; //
@@ -160,8 +160,8 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[2] } }, // Changes The Layout to | Columns                 //
   { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[3] } }, // Changes The Layout to | Monocle (Fullscreen)    //
   //********************************************************************************//*************************************************//
-  { MODKEY,                       XK_h,      setmfact,       {.f = +0.05       } }, // Increase | The Size of The Master Stack         //
-  { MODKEY,                       XK_l,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
+  { MODKEY,                       XK_l,      setmfact,       {.f = +0.05       } }, // Increase | The Size of The Master Stack         //
+  { MODKEY,                       XK_h,      setmfact,       {.f = -0.05       } }, // Decrease | The Size of The Master Stack         //
   //********************************************************************************//*************************************************//
   { MODKEY,                       XK_v,      togglebar,      {0                } }, // Toggles The Top Bar                             //
   //********************************************************************************//*************************************************//
@@ -217,6 +217,8 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY|ShiftMask,             XK_b,      spawn,        {.v = webmarkcmd    } }, // Webmark                                         //
   { MODKEY|ALTKEY,                XK_w,      spawn,        {.v = wallchangecmd } }, // WallChange                                      //
   { MODKEY,                       XK_o,      spawn,        {.v = kpmenucmd     } }, // Kpmenu                                          //
+  { MODKEY,                       XK_period, spawn,        {.v = emojicmd      } }, // Emoji Menu                                      //
+  { MODKEY,                       XK_comma,  spawn,        {.v = kamojicmd     } }, // Kamoji Menu                                     //
   //********************************************************************************//*************************************************//
 };
 
