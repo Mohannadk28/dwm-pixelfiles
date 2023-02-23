@@ -112,6 +112,9 @@ static const char *kpmenucmd[]     = { "/home/mohannadk28/.local/share/dwm/defap
 static const char *webmarkcmd[]    = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/webmark", NULL };    // Bookmarks Menu         //
 static const char *wallchangecmd[] = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/wallchange", NULL }; // Wallpaper Changer      //
 //******************************************************************************************************************//************************//
+static const char *emojicmd[]      = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/emoji", NULL };      // Emoji Menu             //
+static const char *kamojicmd[]      = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/kamoji", NULL };    // Kamoji Menu            //
+//******************************************************************************************************************//************************//
 
 // BINDINGS ___________________________________________________________________________________________________________________________//
 #include "shiftview.c" // Shiftview Plugin 
