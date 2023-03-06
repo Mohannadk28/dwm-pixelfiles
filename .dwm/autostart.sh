@@ -12,7 +12,8 @@ dwmblocks & # Starts DWM Blocks
 emacs --daemon &
 
 picom & # Starts The Composter
-conky -c ~/.config/conky/conkyrc & # Starts The Weather Widget
+conky -c ~/.config/conky/weather_conkyrc & # Starts The Weather Widget
+conky -c ~/.config/conky/music_conkyrc & # Starts The Music Widget
 
 megasync & # starts MEGAsync
 syncthingtray & # Syncthing

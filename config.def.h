@@ -29,17 +29,29 @@ static const int topbar                  = 1;  // Enable Bottom Bar ??          
 static const char *fonts[]               = { "FiraCode Nerd Font:size=10" }; // Fonts
 
 //** Colors ******************************************//
-static const char col_gray1[]            = "#3b4252"; //
-static const char col_gray2[]            = "#434c5e"; //
-static const char col_gray3[]            = "#d8dee9"; //
-static const char col_gray4[]            = "#e5e9f0"; //
-static const char col_cyan[]             = "#88c0d0"; //
+//static const char col_gray1[]            = "#3b4252"; //
+//static const char col_gray2[]            = "#434c5e"; //
+//static const char col_gray3[]            = "#d8dee9"; //
+//static const char col_gray4[]            = "#e5e9f0"; //
+//static const char col_cyan[]             = "#88c0d0"; //
 //****************************************************//
 
-static const char *colors[][3]           = {
+//static const char *colors[][3]           = {
 //[Scheme]     = { fg,        bg,        border     },
-  [SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
-  [SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
+//  [SchemeNorm] = { col_gray3, col_gray1, col_gray2  },
+//  [SchemeSel]  = { col_cyan,  col_gray1, col_cyan   },
+//};
+
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selbgcolor,  normbgcolor,  selbordercolor  },
 };
 
 // TAGS _______________________________________________________________________________________________________________________________//
@@ -223,6 +235,8 @@ static const Key keys[] = { // Keyborad Bindings
   { MODKEY,                       XK_period, spawn,        {.v = emojicmd      } }, // Emoji Menu                                      //
   { MODKEY,                       XK_comma,  spawn,        {.v = kamojicmd     } }, // Kamoji Menu                                     //
   //********************************************************************************//*************************************************//
+
+  { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 };
 
 static const Button buttons[] = { // Mouse Bindings
