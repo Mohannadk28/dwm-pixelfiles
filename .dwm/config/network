@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mpv --no-video ~/.pixelfiles/sounds-pixelfiles/menu2.mp3 &
+networkmanager_dmenu &
+

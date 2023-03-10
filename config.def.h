@@ -97,35 +97,37 @@ static const Layout layouts[] = { // Layout Symbols
 // helper for spawning shell commands in the pre dwm-5.0 fashion 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
-//* COMMANDS *******************************************************************************************//************************//
+//* COMMANDS *******************************************************************************************************//************************//
 static const char *xkbmap[]        = { "/home/mohannadk28/.local/share/dwm/scripts/langswitch", NULL };             // Change Keyboard Layout //
 static const char *runprompt[]     = { "/home/mohannadk28/.local/share/dwm/scripts/launch", NULL };                 // Run Prompt             //
 static const char *lockcmd[]       = { "/home/mohannadk28/.local/share/dwm/scripts/lock", NULL};                    // Lock Screen            //
-//******************************************************************************************************//************************//
+//******************************************************************************************************************//************************//
 static const char *webcmd[]        = { "/home/mohannadk28/.local/share/dwm/defapps/web", NULL };                    // Open | Web Browser     //
 static const char *termcmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/term", NULL };                   // Open | Terminal        //
 static const char *filecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/file", NULL };                   // Open | File Manager    //
 static const char *codecmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/code", NULL };                   // Open | Code Editor     //
-static const char *keepasscmd[]       = { "/home/mohannadk28/.local/share/dwm/defapps/keepass", NULL };             // Open | KeePass Client  //
+static const char *keepasscmd[]    = { "/home/mohannadk28/.local/share/dwm/defapps/keepass", NULL };                // Open | KeePass Client  //
+//******************************************************************************************************************//************************//
+static const char *cfgnetworkcmd[] = { "/home/mohannadk28/.local/share/dwm/config/network", NULL };                 // Config | Network       //
 //******************************************************************************************************************//************************//
 static const char *prtselcmd[]     = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", "select", NULL };   // Screenshot | Selection //
 static const char *prtfscmd[]      = { "/home/mohannadk28/.local/share/dwm/scripts/screenshot", NULL };             // Screenshot | Screen    //
 //******************************************************************************************************************//************************//
-static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                        // Volume | Up            //
-static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                        // Volume | Down          //
-static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                          // Volume | Mute          //
-//******************************************************************************************************//************************//
-static const char *brightupcmd[]   = { "brightnessctl", "s", "10%+", NULL };                            // Brightness | Up        //
-static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };                            // Brightness | Down      //
-//******************************************************************************************************//************************//
+static const char *volupcmd[]      = { "amixer", "set", "Master", "5%+", NULL };                                    // Volume | Up            //
+static const char *voldowncmd[]    = { "amixer", "set", "Master", "5%-", NULL };                                    // Volume | Down          //
+static const char *volmcmd[]       = { "amixer", "set", "Master", "0", NULL };                                      // Volume | Mute          //
+//******************************************************************************************************************//************************//
+static const char *brightupcmd[]   = { "brightnessctl", "s", "10%+", NULL };                                        // Brightness | Up        //
+static const char *brightdowncmd[] = { "brightnessctl", "s", "10&-", NULL };                                        // Brightness | Down      //
+//******************************************************************************************************************//************************//
 static const char *byecmd[]        = { "/home/mohannadk28/.local/share/dwm/scripts/bye", NULL };                    // Bye :D                 //
 static const char *webmarkcmd[]    = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/webmark", NULL };    // WebMark                //
 static const char *wallchangecmd[] = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/wallchange", NULL }; // WallChange             //
 static const char *ambientercmd[]  = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/ambienter", NULL };  // Ambienter              //
-//******************************************************************************************************//************************//
+//******************************************************************************************************************//************************//
 static const char *emojicmd[]      = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/emoji", NULL };      // Emoji Menu             //
 static const char *kamojicmd[]     = { "/home/mohannadk28/.pixelfiles/scripts-pixelfiles/dmenu/kamoji", NULL };     // Kamoji Menu            //
-//******************************************************************************************************//************************//
+//******************************************************************************************************************//************************//
 
 // BINDINGS ___________________________________________________________________________________________________________________________//
 #include "shiftview.c" // Shiftview Plugin 
@@ -218,19 +220,22 @@ static Keychord *keychords[] = { // Keyborad Bindings
   TAGKEYS(                         XK_9,                                8) // Switch To Tag | 9                    //
   //***********************************************************************//**************************************//
  
-  //********************************************************************************************************//
-  // Scripts                                                                                                //
-  //************************************************************************************//**************//
-  &((Keychord){ 1,    { { MODKEY|ShiftMask, XK_q } }, spawn, {.v = byecmd        } } ), // Bye :D       //
-  //************************************************************************************//**************//
-  &((Keychord){ 2, { { MODKEY, XK_d }, { 0, XK_b } }, spawn, {.v = webmarkcmd    } } ), // Webmark      //
-  &((Keychord){ 2, { { MODKEY, XK_d }, { 0, XK_w } }, spawn, {.v = wallchangecmd } } ), // WallChange   //
-  &((Keychord){ 2, { { MODKEY, XK_d }, { 0, XK_a } }, spawn, {.v = ambientercmd  } } ), // Ambienter    //
-  //************************************************************************************//**************//
-  &((Keychord){ 1,         { { MODKEY, XK_period } }, spawn, {.v = emojicmd      } } ), // Emoji Menu   //
-  &((Keychord){ 1,         { { MODKEY, XK_comma  } }, spawn, {.v = kamojicmd     } } ), // Kamoji Menu  //
-  &((Keychord){ 1,              { { MODKEY, XK_m } }, spawn, {.v = keepasscmd    } } ), // KeePass Menu //
-  //************************************************************************************//**************//
+  //*******************************************************************************************************************//
+  // Scripts                                                                                                           //
+  //*************************************************************************************************//****************//
+  &((Keychord){ 1,                 { { MODKEY|ShiftMask, XK_q } }, spawn, {.v = byecmd        } } ), // Bye :D         //
+  //*************************************************************************************************//****************//
+  &((Keychord){ 2,              { { MODKEY, XK_d }, { 0, XK_b } }, spawn, {.v = webmarkcmd    } } ), // Webmark        //
+  &((Keychord){ 2,              { { MODKEY, XK_d }, { 0, XK_w } }, spawn, {.v = wallchangecmd } } ), // WallChange     //
+  &((Keychord){ 3, { { MODKEY, XK_d }, { 0, XK_s }, { 0, XK_a } }, spawn, {.v = ambientercmd  } } ), // Ambienter      //
+  &((Keychord){ 3, { { MODKEY, XK_d }, { 0, XK_s }, { 0, XK_s } }, spawn, {.v = cmusremotecmd } } ), // CMUS Remote    //
+  //*************************************************************************************************//****************//
+  &((Keychord){ 2,              { { MODKEY, XK_c }, { 0, XK_n } }, spawn, {.v = cfgnetworkcmd } } ), // Network Config //
+  //*************************************************************************************************//****************//
+  &((Keychord){ 1,                      { { MODKEY, XK_period } }, spawn, {.v = emojicmd      } } ), // Emoji Menu     //
+  &((Keychord){ 1,                      { { MODKEY, XK_comma  } }, spawn, {.v = kamojicmd     } } ), // Kamoji Menu    //
+  &((Keychord){ 1,                           { { MODKEY, XK_m } }, spawn, {.v = keepasscmd    } } ), // KeePass Menu   //
+  //*************************************************************************************************//****************//
 
   &((Keychord){ 1, {{ MODKEY, XK_F5 }},     xrdb,           {.v = NULL } }),
 };

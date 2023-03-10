@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -rf ./config.h
+./manage/cleanup
 sudo make clean install
 ./manage/cleanup
 
