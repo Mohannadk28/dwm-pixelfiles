@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp -r config.def.h config.def.h.b
+cp -r config.def.h config.def.h.bk
 cp -r config.mk config.mk.bk
 cp -r dwm.c dwm.c.bk
 cp -r dwm.1 dwm.1.bk
